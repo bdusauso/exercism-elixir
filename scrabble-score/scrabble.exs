@@ -37,7 +37,7 @@ defmodule Scrabble do
     word
     |> String.replace(~r/\s/, "")
     |> String.downcase
-    |> String.codepoints
+    |> String.graphemes
     |> Enum.reduce(0, fn char, sum -> sum + @letter_points[char] end)
   end
 end
