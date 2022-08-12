@@ -28,7 +28,6 @@ defmodule PrimeFactors do
 
   defp prime?(2), do: true
   defp prime?(number) do
-    # TODO: Improve upper limit for efficiency
     upper = (number |> :math.sqrt() |> trunc) + 1
     Enum.all?((2..upper), & rem(number, &1) != 0)
   end
