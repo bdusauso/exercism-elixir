@@ -1,6 +1,19 @@
 defmodule NameBadge do
-  def print(nil, name, nil), do: "#{name} - OWNER"
-  def print(nil, name, department), do: "#{name} - #{String.upcase(department)}"
-  def print(id, name, nil), do: "[#{id}] - #{name} - OWNER"
-  def print(id, name, department), do: "[#{id}] - #{name} - #{String.upcase(department)}"
+  def print(id, name, department) do
+    name
+    |> add_id(id)
+    |> add_department(department)
+  end
+
+  def add_id(badge, id) do
+    if id,
+      do: "[#{id}] - " <> badge,
+      else: badge
+  end
+
+  def add_department(badge, department) do
+    if department,
+      do: badge <> " - #{String.upcase(department)}",
+      else: badge <> " - OWNER"
+  end
 end
