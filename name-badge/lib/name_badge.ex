@@ -5,13 +5,13 @@ defmodule NameBadge do
     |> add_department(department)
   end
 
-  def add_id(badge, id) do
+  defp add_id(badge, id) do
     if id,
       do: "[#{id}] - " <> badge,
       else: badge
   end
 
-  def add_department(badge, department) do
+  defp add_department(badge, department) do
     if department,
       do: badge <> " - #{String.upcase(department)}",
       else: badge <> " - OWNER"
